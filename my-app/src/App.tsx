@@ -6,19 +6,26 @@ import DisplayList from './Components/DisplayList';
 function App() {
   
   const [input, setInput] = useState('')
-  const [citiesMatch, setCitiesMatch] = useState([]);
+  const [city, setCity] = useState([]);
+  const [allCities, setAllCities] = useState([])
   
     async function doFetch() {
       const results = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input}?unitGroup=metric&key=Y2TR7R2AL9M9DDLZNTV7UPV67&contentType=json`)
       const data = await results.json();
       console.log(data);
+      setCity(data);
+      return data;
     }
-   //const results = fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m`)
   
+     function addWeather() {
+      setAllCities([...allCities, city])
+    }
+
   return (
     <div className="App">
-      <UserInput setInput={setInput} citiesMatch={citiesMatch}/>
+      <UserInput setInput={setInput} citiesMatch={city}/>
       <button onClick={doFetch}>Search</button>
+      <DisplayList citiesMatch={city}/>
     </div>
   );
 }
