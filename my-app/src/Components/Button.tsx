@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Button() {
+export default function Button(clickHandler: React.MouseEventHandler<HTMLElement>) {
   return (
-    <div>Button</div>
+    <div></div>
   )
 }

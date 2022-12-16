@@ -1,5 +1,6 @@
 export interface t_UserInputProps {
     setInput: Function;
+    citiesMatch: object[];
 }
 
 export interface Weather {
