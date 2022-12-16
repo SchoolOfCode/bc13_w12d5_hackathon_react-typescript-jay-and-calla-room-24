@@ -2,11 +2,12 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import UserInput from './Components/UserInput';
 import DisplayList from './Components/DisplayList';
+import {t_City} from "./Types"
 
 function App() {
   
   const [input, setInput] = useState('')
-  const [city, setCity] = useState<object[]>([]);
+  const [city, setCity] = useState<t_City>({});
   const [allCities, setAllCities] = useState<object[]>([])
   
     async function doFetch() {
