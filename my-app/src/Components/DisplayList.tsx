@@ -1,9 +1,13 @@
 import React from 'react'
-import { t_DisplayListProps} from '../Types'
+import { t_DisplayListProps, t_DisplayItemProps} from '../Types'
 import DisplayItem from './DisplayItem'
 
-export default function DisplayList({citiesMatch}: t_DisplayListProps) {
+export default function DisplayList({citiesMatch}: t_DisplayListProps){
+  console.log(citiesMatch);
+
   return (
-    <div>DisplayList</div>
+    <div>
+      {citiesMatch}
+    </div>
   )
 }

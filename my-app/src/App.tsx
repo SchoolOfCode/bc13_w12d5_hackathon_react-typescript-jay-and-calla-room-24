@@ -7,7 +7,7 @@ function App() {
   
   const [input, setInput] = useState('')
   const [city, setCity] = useState([]);
-  const [allCities, setAllCities] = useState([])
+  const [allCities, setAllCities] = useState<object[]>([])
   
     async function doFetch() {
       const results = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input}?unitGroup=metric&key=Y2TR7R2AL9M9DDLZNTV7UPV67&contentType=json`)
@@ -25,7 +25,8 @@ function App() {
     <div className="App">
       <UserInput setInput={setInput} citiesMatch={city}/>
       <button onClick={doFetch}>Search</button>
-      <DisplayList citiesMatch={city}/>
+      <button onClick={addWeather}>Add</button>
+      <DisplayList citiesMatch={allCities}/>
     </div>
   );
 }

@@ -6,3 +6,7 @@ export interface t_UserInputProps {
 export interface t_DisplayListProps {
     citiesMatch: object[];
 }
+
+export interface t_DisplayItemProps {
+    city: object;
+}
