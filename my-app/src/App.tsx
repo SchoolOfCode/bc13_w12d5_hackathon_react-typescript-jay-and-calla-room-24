@@ -7,7 +7,7 @@ import {t_City} from "./Types"
 function App() {
   
   const [input, setInput] = useState('')
-  const [city, setCity] = useState<t_City>({});
+  const [city, setCity] = useState<any>({});
   const [allCities, setAllCities] = useState<object[]>([])
   
     async function doFetch() {
@@ -22,19 +22,35 @@ function App() {
       setAllCities([...allCities, city])
     }
 
-  return (
-    <div className="App">
-      <UserInput setInput={setInput} citiesMatch={city}/>
-      <button onClick={doFetch}>Search</button>
-      
-      <div className="city-display">
-      <h1>{city.resolvedAddress}</h1>
-      <button onClick={addWeather}>Add</button>
-      </div>
-     
-      <DisplayList citiesMatch={allCities}/>
-    </div>
-  );
+  if(Object.keys(city).length === 0) {
+      return (
+        <div className="App">
+          <UserInput setInput={setInput} citiesMatch={city}/>
+          <button onClick={doFetch}>🌎 SEARCH 🌍</button>
+          
+          <div className="city-display">
+          <h1>{city.resolvedAddress}</h1>
+          </div>
+          <hr />
+          <DisplayList citiesMatch={allCities}/>
+        </div>
+      );
+      } else {
+        return (
+          <div className="App">
+            <UserInput setInput={setInput} citiesMatch={city}/>
+            <button onClick={doFetch}>🌎 SEARCH 🌍</button>
+            
+            <div className="city-display">
+            <h1>{city.resolvedAddress}</h1>
+            <button id="add-button" onClick={addWeather}>ADD</button>
+            
+            </div>
+            <hr />
+            <DisplayList citiesMatch={allCities}/>
+          </div>
+        );
+      }
 }
 
 export default App;
