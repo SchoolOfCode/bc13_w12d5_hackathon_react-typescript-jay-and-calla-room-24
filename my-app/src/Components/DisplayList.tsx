@@ -9,10 +9,13 @@ export default function DisplayList({citiesMatch}: t_DisplayListProps){
     return (
       <>
         {
-            citiesMatch.map(({resolvedAddress, description}: any) => {
+            citiesMatch.map(({resolvedAddress, description, days, sunrise, sunset}: any) => {
               return (<div>
-                        <p><h1>{resolvedAddress}</h1></p>
+                        <h1>{resolvedAddress}</h1>
                         <p>{description}</p>
+                        <p>🌅 Sunrise: {days[0].sunrise}</p>
+                        <p>🌇 Sunset: {days[0].sunset}</p>
+                        <p>🌡 Temperature today: {days[0].temp}°C</p>
                       </div>)
             })
         }

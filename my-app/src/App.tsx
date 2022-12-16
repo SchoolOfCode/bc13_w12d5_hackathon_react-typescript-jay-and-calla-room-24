@@ -27,7 +27,7 @@ function App() {
       <UserInput setInput={setInput} citiesMatch={city}/>
       <button onClick={doFetch}>Search</button>
       
-      <div>
+      <div className="city-display">
       <h1>{city.resolvedAddress}</h1>
       <button onClick={addWeather}>Add</button>
       </div>
