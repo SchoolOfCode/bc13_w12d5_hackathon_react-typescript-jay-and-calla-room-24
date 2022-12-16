@@ -6,7 +6,7 @@ import DisplayList from './Components/DisplayList';
 function App() {
   
   const [input, setInput] = useState('')
-  const [city, setCity] = useState([]);
+  const [city, setCity] = useState<object[]>([]);
   const [allCities, setAllCities] = useState<object[]>([])
   
     async function doFetch() {
@@ -25,7 +25,12 @@ function App() {
     <div className="App">
       <UserInput setInput={setInput} citiesMatch={city}/>
       <button onClick={doFetch}>Search</button>
+      
+      <div>
+      <h1>{city.resolvedAddress}</h1>
       <button onClick={addWeather}>Add</button>
+      </div>
+     
       <DisplayList citiesMatch={allCities}/>
     </div>
   );
