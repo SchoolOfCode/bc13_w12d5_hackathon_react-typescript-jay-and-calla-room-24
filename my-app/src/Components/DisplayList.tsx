@@ -4,8 +4,14 @@ import DisplayItem from './DisplayItem'
 
 export default function DisplayList({citiesMatch}: t_DisplayListProps){
   console.log("DisplayList: ", citiesMatch);
+  //let cName = "weather-child";
 
-  if(citiesMatch !== undefined) {
+  /*
+  if(citiesMatch[0].days.temp < 0) cName += " frozen";
+  else if(citiesMatch.days[0].temp > 0 && citiesMatch.days[0].temp < 10) cName += " cold";
+  else if(citiesMatch.days[0].temp > 0 && citiesMatch.days[0].temp < 10) cName += " cold";
+*/
+  if(citiesMatch !== undefined) {    
     return (
       <>
         {
