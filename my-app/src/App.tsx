@@ -3,6 +3,7 @@ import './App.css';
 import UserInput from './Components/UserInput';
 import DisplayList from './Components/DisplayList';
 import {t_City} from "./Types"
+import dotenv from "dotenv";
 
 function App() {
   
@@ -10,8 +11,9 @@ function App() {
   const [city, setCity] = useState<any>({});
   const [allCities, setAllCities] = useState<object[]>([])
   
+
     async function doFetch() {
-      const results = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input}?unitGroup=metric&key=${process.env.REACT_APP_key}&contentType=json`)
+      const results = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${input}?unitGroup=metric&key=${process.env.REACT_APP_KEY}&contentType=json`)
       const data = await results.json();
       console.log(data);
       setCity(data);
