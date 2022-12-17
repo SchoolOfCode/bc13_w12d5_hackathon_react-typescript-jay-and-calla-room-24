@@ -1,9 +1,15 @@
 import React from 'react'
-import { t_DisplayListProps, t_DisplayItemProps} from '../Types'
+import { t_DisplayListProps, t_DisplayItemProps, t_City} from '../Types'
 import DisplayItem from './DisplayItem'
+//import Button from './Button';
 
-export default function DisplayList({citiesMatch}: t_DisplayListProps){
+export default function DisplayList({setAllCities, citiesMatch}: t_DisplayListProps){
   console.log("DisplayList: ", citiesMatch);
+
+  function deleteCity(resolvedAddress: string) {
+    setAllCities(citiesMatch.filter((city:any) => { return city.resolvedAddress !== resolvedAddress }));
+  }
+
   //let cName = "weather-child";
 
   /*
@@ -15,9 +21,9 @@ export default function DisplayList({citiesMatch}: t_DisplayListProps){
     return (
       <>
         {
-            citiesMatch.map(({resolvedAddress, description, days}: any) => {
+            citiesMatch.map(({resolvedAddress, description, days}: any, index) => {
               return (<div className="weather-child">
-                        <h1>{resolvedAddress}</h1>
+                        <h1>{resolvedAddress}<button onClick={() => {deleteCity(resolvedAddress)}}>DELETE</button></h1>
                         <h2>{description}</h2>
                         <p>🌅 Sunrise: {days[0].sunrise}</p>
                         <p>🌇 Sunset: {days[0].sunset}</p>
