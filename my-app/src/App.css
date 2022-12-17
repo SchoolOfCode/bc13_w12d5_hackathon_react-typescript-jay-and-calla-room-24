@@ -56,9 +56,21 @@ body {
 .weather-child h1 {
   color: darkblue;
   background: white;
+  padding-top: 5px;
   padding-bottom: 5px;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
+}
+
+.weather-child button {
+  position: absolute;
+  margin-left: 20px;
+  margin-bottom: 5px;
+  margin-top: 4px;
+  align-self: center;
+  font-size: medium;
+  color: white;
+  background-color: darkblue;
 }
 
 .weather-child h2 {

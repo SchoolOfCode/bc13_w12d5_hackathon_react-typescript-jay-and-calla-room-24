@@ -40,7 +40,7 @@ function App() {
           <h1>{city.resolvedAddress}</h1>
           </div>
           <hr />
-          <DisplayList citiesMatch={allCities}/>
+          <DisplayList citiesMatch={allCities} setAllCities={setAllCities}/>
         </div>
       );
       } else { /* otherwise DO show the button */
@@ -55,7 +55,7 @@ function App() {
         
             </div>
             <hr />
-            <DisplayList citiesMatch={allCities}/>
+            <DisplayList citiesMatch={allCities} setAllCities={setAllCities}></DisplayList>
           </div>
         );
       }
