@@ -1,9 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import UserInput from './Components/UserInput';
 import DisplayList from './Components/DisplayList';
-import {t_City} from "./Types"
-import dotenv from "dotenv";
 
 function App() {
   
